@@ -29,6 +29,4 @@ export default class Pokemon {
   
   @OneToMany(() => PokemonUser, pokemonUser => pokemonUser.pokemon)
   pokemonUser: PokemonUser[]
-
-  
 }

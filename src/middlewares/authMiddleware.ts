@@ -1,5 +1,4 @@
-import { Request, Response } from "express";
-import { NextFunction } from "express-serve-static-core";
+import { Request, Response, NextFunction } from "express";
 
 import * as authService from "../services/sessionService";
 
