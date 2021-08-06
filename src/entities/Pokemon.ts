@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
-import User from "./User";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import PokemonUser from "./PokemonUser";
 
 @Entity("pokemons")
 export default class Pokemon {
@@ -16,14 +16,19 @@ export default class Pokemon {
   image: string;
 
   @Column()
-  weight: string;
+  weight: number;
 
   @Column()
-  heigth: string;
+  height: number;
 
   @Column()
   baseExp: number;
 
-  @Column()
+  @Column({nullable: true})
   description: string;
+  
+  @OneToMany(() => PokemonUser, pokemonUser => pokemonUser.pokemon)
+  pokemonUser: PokemonUser[]
+
+  
 }
