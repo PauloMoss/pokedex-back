@@ -5,7 +5,8 @@ import Pokemon from "../../src/entities/Pokemon";
 
 export async function clearDatabase () {
   await getConnection().query("TRUNCATE users RESTART IDENTITY CASCADE");
-  //await getConnection().query("TRUNCATE period RESTART IDENTITY CASCADE");
+  await getConnection().query("TRUNCATE pokemons RESTART IDENTITY CASCADE");
+  await getConnection().query("TRUNCATE sessions RESTART IDENTITY CASCADE");
 }
 
 
