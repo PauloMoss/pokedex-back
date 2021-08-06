@@ -8,10 +8,11 @@ export async function getAllPokemons(userId: number) {
 
     const repository = getRepository(Pokemon);
 
-    const allPokemons = await repository.find({relations:["pokemonUser"]});
+    let allPokemons = await repository.find({relations:["pokemonUser"]});
 
     if(allPokemons.length === 0 && process.env.NODE_ENV !== "test") {
-        await populateDatabase()
+        await populateDatabase();
+        allPokemons = await repository.find({relations:["pokemonUser"]});
     }
 
     const pokemons = allPokemons.map(p => {
