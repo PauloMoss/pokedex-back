@@ -4,7 +4,7 @@ import * as pokemonService from "../services/pokemonService";
 
 export async function getPokemons(req:Request, res: Response) {
     try{
-        const userId = res.locals.user.userId;
+        const userId = res.locals.userId;
         const pokemons = await pokemonService.getAllPokemons(userId)
 
         res.send(pokemons);

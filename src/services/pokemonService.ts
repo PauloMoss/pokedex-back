@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 
 import Pokemon from "../entities/Pokemon";
 import PokemonUser from "../entities/PokemonUser";
-import {populateDatabase} from "../../tests/utils/database"
+import {populateDatabase} from "../utils/populateDatabaseFunction"
 
 export async function getAllPokemons(userId: number) {
 
