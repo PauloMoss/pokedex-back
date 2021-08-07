@@ -18,7 +18,7 @@ export async function getPokemons(req:Request, res: Response) {
 export async function addPokemon(req:Request, res: Response) {
     try{
         const pokemonId = Number(req.params.id);
-        const userId = res.locals.user.userId;
+        const userId = res.locals.userId;
 
         
         await pokemonService.addMyNewPokemon(pokemonId, userId)
@@ -34,7 +34,7 @@ export async function addPokemon(req:Request, res: Response) {
 export async function removePokemon(req:Request, res: Response) {
     try{
         const pokemonId = Number(req.params.id);
-        const userId = res.locals.user.userId;
+        const userId = res.locals.userId;
 
         
         await pokemonService.removeMyOldPokemon(pokemonId, userId)
